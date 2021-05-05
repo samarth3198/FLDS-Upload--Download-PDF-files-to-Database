@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<head>
+    <title>File Upload</title>
+</head>
+<body>
+<f:view transient="true">  <!-- To keep the request alive as request in request scoped is processed once the file is uploaded -->
+    <h3>Upload the file here by clicking on the browse button below</h3>
+    <h:form enctype="multipart/form-data">    <!-- Use for form encoding and sending large file, non ASCII data and large binary data , keeping them intact -->
+    <h:outputText value="Browse: "></h:outputText>
+    <h:inputFile value="#{pdfbean.uploadedFile}"></h:inputFile>
+    <br></br>
+    <br></br>
+    <h:commandButton value="Save" type="submit" action="#{pdfbean.upload()}"></h:commandButton>
+</h:form>
+</f:view>
+</body>
+</html>

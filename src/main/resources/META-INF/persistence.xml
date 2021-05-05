@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+
+    <persistence-unit name="CRUD" transaction-type="JTA">
+        <jta-data-source>java:/PostgresDS</jta-data-source>
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/> <!--DB Dialect The dialect specifies the type of database used in hibernate  -->
+            <!--<property name="hibernate.dialect" value="gov.fl.dms.PdfStore.CustomPostgreSQLDialect"/> -->
+            <property name="hibernate.hbm2ddl.auto" value="update" /> <!-- hibernate.hbm2ddl.auto Automatically validates or exports schema DDL to the database. create / create-drop / update -->
+
+            <property name="hibernate.show_sql" value="true" /> <!-- Show SQL in console -->
+            <property name="hibernate.format_sql" value="true" /> <!-- Show SQL formatted -->
+        </properties>
+    </persistence-unit>
+</persistence>
+
+

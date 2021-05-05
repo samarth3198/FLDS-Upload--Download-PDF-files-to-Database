@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Pdf Files</title>
+</h:head>
+
+<h:body>
+    <h1>Files available for download are</h1>
+
+    <h:form id="form">
+        <h:dataTable class="table" value="#{pdfbean.files}" var="p">
+            <h:column>
+                <f:facet name="header">Id</f:facet>
+                <h:outputText value="#{p.id}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">File Name</f:facet>
+                <h:outputText class="input" value="#{p.fileName}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Delete</f:facet>
+                <h:commandButton value="Delete" update="table" action="#{pdfbean.delete(p)}" render="@form"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Download</f:facet>
+                <h:commandButton value="Download"  action="#{pdfbean.downloadPDF(p)}"/>
+            </h:column>
+        </h:dataTable>
+
+        <h:commandButton value="Add New File" action="fileupload" />
+    </h:form>
+</h:body>
+</html>

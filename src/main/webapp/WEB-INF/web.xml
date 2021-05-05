@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <context-param>
+        <param-name>javax.faces.PROJECT_STAGE</param-name> <!-- Project stage your current project is currently in -->
+        <param-value>Development</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class> <!-- Requirement of JavaServer Faces application all the request must go through this -->
+        <load-on-startup>1</load-on-startup>  <!-- It is used to load servlet at the time of project deployment or server start. If this is not there it will load
+                    the servlet at the time of first request which will take more time. So to make it faster and consume less time we do this -->
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.xhtml</url-pattern>  <!-- mapping of servlet request -->
+    </servlet-mapping>
+
+    <welcome-file-list>     <!-- List of welcomes files that server search for starting application from this page when app loads -->
+        <welcome-file>viewFiles.xhtml</welcome-file>   <!-- It by defaults search for Index.html or Index.htm or Index.jsp if no file is provided -->
+    </welcome-file-list>
+</web-app>

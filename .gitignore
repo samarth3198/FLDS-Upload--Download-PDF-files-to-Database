@@ -1,0 +1,9 @@
+#Don't track these folders
+target/
+
+#Don't track these files
+
+*.com
+*.class
+*.exe
+*.idea
